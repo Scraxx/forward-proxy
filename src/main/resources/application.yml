@@ -1,0 +1,21 @@
+server:
+  port: 8080
+
+spring:
+  application:
+    name: forward-proxy-service
+
+proxy:
+  proxyProviderUrl: "https://proxylist.geonode.com/api/proxy-list?country=IN&anonymityLevel=elite&limit=100&page=1&sort_by=lastChecked&sort_type=desc"
+  proxyFetchIntervalMinutes: 60
+  healthCheckIntervalMinutes: 5
+  healthCheckTimeoutSeconds: 3
+  maxRetriesPerProxy: 1
+  maxProxyAttempts: 3
+  connectionTimeoutSeconds: 30
+  readTimeoutSeconds: 60
+
+logging:
+  level:
+    com.scraxx.proxy: DEBUG
+    org.springframework: WARN
